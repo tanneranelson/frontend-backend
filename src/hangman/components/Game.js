@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { RandomWord } from './randomWord';
+import { movies } from './answerList';
+import { games } from './answerList';
+import { foods } from './answerList';
 
-export class Game extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { score: 0 };
-  }
-  
-  render () {
-    return (
-
-    );
-  }
-}
+export const Game = props => (
+      <div>
+        {props.children}
+      </div>
+);

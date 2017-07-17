@@ -1,9 +1,12 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
+import { Router } from 'react-router';
 import ReactDOM from 'react-dom';
-//import { Game } from '../Game';
+
+import routes from './routes'
+
 
 ReactDOM.render(
-  //<Game />,
-  <h1>Hangman</h1>,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('main')
 );
