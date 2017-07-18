@@ -12,7 +12,7 @@ export class Movies extends Component {
   // }
   createWord = () => {
     var word = ""
-    var randindex = Math.floor(Math.random() * 5)
+    var randindex = Math.floor(Math.random() * movies.length)
     for (var i = 0; i < movies[randindex].length; i++) {
       if (movies[randindex].charAt(i) == ' ') {
         word += "  "
@@ -22,7 +22,10 @@ export class Movies extends Component {
     }
     console.log(word);
     return (
-      <h1 style={{whiteSpace: "pre"}}>{word}</h1>
+      <div>
+        <h1 style={{whiteSpace: "pre"}}>{word}</h1>
+        <h1>{movies[randindex]}</h1>
+      </div>
     )
   }
   render () {

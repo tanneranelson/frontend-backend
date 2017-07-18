@@ -12,9 +12,9 @@ export class Food extends Component {
   // }
   createWord = () => {
     var word = ""
-    var randindex = Math.floor(Math.random() * 5)
-    for (var i = 0; i < movies[randindex].length; i++) {
-      if (movies[randindex].charAt(i) == ' ') {
+    var randindex = Math.floor(Math.random() * foods.length)
+    for (var i = 0; i < foods[randindex].length; i++) {
+      if (foods[randindex].charAt(i) == ' ') {
         word += "  "
       } else {
         word += "_ "
@@ -22,13 +22,19 @@ export class Food extends Component {
     }
     console.log(word);
     return (
+      <div>
       <h1 style={{whiteSpace: "pre"}}>{word}</h1>
+      <h1>{foods[randindex]}</h1>
+      </div>
     )
   }
+
+
+
   render () {
     return (
       <div>
-        food
+        Food
         {this.createWord()}
       </div>
     );
