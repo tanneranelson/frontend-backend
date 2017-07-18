@@ -3,6 +3,7 @@ import { RandomWord } from './randomWord';
 import { movies } from './answerList';
 import { games } from './answerList';
 import { foods } from './answerList';
+import { AppHeader } from './Header';
 
 export class Movies extends Component {
   // constructor(props) {
@@ -31,6 +32,7 @@ export class Movies extends Component {
   render () {
     return (
       <div>
+        <AppHeader />
         movies
         {this.createWord()}
       </div>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import './header.css';
 
 import logo from './logo.svg';
 
-class AppHeader extends Component {
+export class AppHeader extends Component {
   render() {
     return (
-      <div className="header">
-        <img src= { logo } />
-        <h1>HANGMAN<h1>
+      <div id="heder" class="header" margin="0 auto">
+        <img src= { logo } className="headimg" />
       </div>
     );
   }
