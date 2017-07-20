@@ -8,11 +8,21 @@ import { Images } from './images';
 var wordList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 var currentWord = ''
 export class Movies extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = { score: 0, randomWord: {RandomWord} };
-  // }
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      clicked: false,
+    };
+    this.randindex = Math.floor(Math.random() * movies.length)
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
+  handleClick() {
+    this.setState({
+      clicked: true,
+    });
+  }
 
   componentDidMount = () => {
     for (let i = 0; i < wordList.length; i++) {
@@ -43,10 +53,9 @@ export class Movies extends Component {
   }
   createWord = () => {
     var word = ""
-    var randindex = Math.floor(Math.random() * movies.length)
-    currentWord = movies[randindex]
-    for (var i = 0; i < movies[randindex].length; i++) {
-      if (movies[randindex].charAt(i) == ' ') {
+    currentWord = movies[this.randindex]
+    for (var i = 0; i < movies[this.randindex].length; i++) {
+      if (movies[this.randindex].charAt(i) == ' ') {
         word += "  "
       } else {
         word += "_ "
@@ -56,7 +65,6 @@ export class Movies extends Component {
     return (
       <div>
         <h1 id="line" style={{whiteSpace: "pre", fontSize: 80}}>{word}</h1>
-        <h1>{movies[randindex]}</h1>
       </div>
     )
   }
@@ -68,9 +76,11 @@ export class Movies extends Component {
         <h1>Movies</h1>
         <Images />
         <div className="letterbox">
-        {wordList.map(this.mapThroughLetters)}
-      </div>
+          {wordList.map(this.mapThroughLetters)}
+        </div>
         {this.createWord()}
+        <button onClick={this.handleClick}>Solution</button>
+        <h1>{this.state.clicked ? movies[this.randindex] : null}</h1>
       </div>
     );
   }
