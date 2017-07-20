@@ -6,14 +6,14 @@ import { foods } from './answerList';
 import { AppHeader } from './Header';
 import { Images } from './images';
 
-export class Movies extends Component {
+export class Videogames extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       clicked: false,
     };
-    this.randindex = Math.floor(Math.random() * movies.length)
+    this.randindex = Math.floor(Math.random() * games.length)
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -25,8 +25,8 @@ export class Movies extends Component {
 
   createWord = () => {
     var word = ""
-    for (var i = 0; i < movies[this.randindex].length; i++) {
-      if (movies[this.randindex].charAt(i) == ' ') {
+    for (var i = 0; i < games[this.randindex].length; i++) {
+      if (games[this.randindex].charAt(i) == ' ') {
         word += "  "
       } else {
         word += "_ "
@@ -45,10 +45,10 @@ export class Movies extends Component {
       <div>
         <AppHeader />
         <Images />
-        movies
+        Games
         {this.createWord()}
         <button onClick={this.handleClick}>Solution</button>
-        <h1>{this.state.clicked ? movies[this.randindex] : null}</h1>
+        <h1>{this.state.clicked ? games[this.randindex] : null}</h1>
       </div>
     );
   }
