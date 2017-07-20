@@ -27,7 +27,7 @@ export class Food extends Component {
     console.log(word);
     return (
       <div>
-      <h1 style={{whiteSpace: "pre"}}>{word}</h1>
+      <h1 style={{whiteSpace: "pre", fontSize: 80}}>{word}</h1>
       <h1>{foods[randindex]}</h1>
       </div>
     )
@@ -37,10 +37,10 @@ export class Food extends Component {
 
   render () {
     return (
-      <div>
+     <div style={{textAlign: "center"}}>>
         <AppHeader />
+        <h1>Food</h1>
         <Images />
-        Food
         {this.createWord()}
       </div>
     );

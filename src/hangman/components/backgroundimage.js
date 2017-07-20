@@ -5,7 +5,7 @@ export class Backgroundimg extends Component {
   render() {
     return (
       <div>
-        <img src= { background } className="backgroundimg" />
+        
       </div>
     );
   }

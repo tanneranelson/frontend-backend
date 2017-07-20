@@ -4,6 +4,7 @@ import { movies } from './answerList';
 import { games } from './answerList';
 import { foods } from './answerList';
 import { AppHeader } from './Header';
+import { Images } from './images';
 
 export class Videogames extends Component {
   // constructor(props) {
@@ -24,16 +25,19 @@ export class Videogames extends Component {
     console.log(word);
     return (
       <div>
-        <h1 style={{whiteSpace: "pre"}}>{word}</h1>
+        <h1 style={{whiteSpace: "pre", fontSize: 80}}>{word}</h1>
         <h1>{games[randindex]}</h1>
       </div>
     )
   }
+
+  
   render () {
     return (
-      <div>
-        <AppHeader />
-        videogames
+      <div style={{textAlign: "center"}}>
+        <AppHeader /><br />
+        <h2>Video Games</h2>
+        <Images />
         {this.createWord()}
       </div>
     );
