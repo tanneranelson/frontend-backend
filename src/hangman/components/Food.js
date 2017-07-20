@@ -5,43 +5,50 @@ import { games } from './answerList';
 import { foods } from './answerList';
 import { AppHeader } from './Header';
 import { Images } from './images';
-import { Backgroundimage } from './backgroundimage';
-
 
 export class Food extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = { score: 0, randomWord: {RandomWord} };
-  // }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      clicked: false,
+    };
+    this.randindex = Math.floor(Math.random() * foods.length)
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      clicked: true,
+    });
+  }
+
   createWord = () => {
     var word = ""
-    var randindex = Math.floor(Math.random() * foods.length)
-    for (var i = 0; i < foods[randindex].length; i++) {
-      if (foods[randindex].charAt(i) == ' ') {
+    for (var i = 0; i < foods[this.randindex].length; i++) {
+      if (foods[this.randindex].charAt(i) == ' ') {
         word += "  "
       } else {
         word += "_ "
       }
     }
-    console.log(word);
+    //console.log(word);
     return (
       <div>
-      <h1 style={{whiteSpace: "pre", fontSize: 80}}>{word}</h1>
-      <h1>{foods[randindex]}</h1>
+        <h1 style={{whiteSpace: "pre"}}>{word}</h1>
       </div>
     )
   }
 
-
-
   render () {
     return (
-     <div style={{textAlign: "center"}}>>
+      <div>
         <AppHeader />
-        <h1>Food</h1>
         <Images />
+        Food
         {this.createWord()}
+        <button onClick={this.handleClick}>Solution</button>
+        <h1>{this.state.clicked ? foods[this.randindex] : null}</h1>
       </div>
     );
   }
